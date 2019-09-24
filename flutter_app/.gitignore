@@ -3,6 +3,7 @@
 .vscode/
 .packages
 .pub/
+.dart_tool/
 android/
 build/
 ios/

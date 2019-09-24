@@ -1,17 +1,26 @@
+import 'dart:io';
+
 import 'package:flutter_slides/models/slides.dart';
 import 'package:flutter_slides/slides/slide_presentation.dart';
 import 'package:flutter/foundation.dart'
-    show debugDefaultTargetPlatformOverride;
+    show debugDefaultTargetPlatformOverride, kIsWeb;
 import 'package:flutter/material.dart';
 
 import 'package:file_chooser/file_chooser.dart' as file_chooser;
 import 'package:menubar/menubar.dart';
 import 'package:scoped_model/scoped_model.dart';
 
+// Sets a platform override for desktop to avoid exceptions. See
+// https://flutter.dev/desktop#target-platform-override for more info.
+void _enablePlatformOverrideForDesktop() {
+  if (!kIsWeb && (Platform.isMacOS || Platform.isWindows || Platform.isLinux)) {
+    debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
+  }
+}
+
 void main() {
-  // Desktop platforms are not recognized as valid targets by
-  // Flutter; force a specific target to prevent exceptions.
-  debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
+  _enablePlatformOverrideForDesktop();
+  WidgetsFlutterBinding.ensureInitialized();
   setApplicationMenu([
     Submenu(label: 'File', children: [
       MenuItem(

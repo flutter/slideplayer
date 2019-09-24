@@ -16,24 +16,17 @@ import Cocoa
 import FlutterMacOS
 
 class FlutterSlides: NSWindow {
-  @IBOutlet weak var flutterViewController: FLEViewController!
-
   override func awakeFromNib() {
     minSize.width = 400.0
     minSize.height = 400.0
+    
+    let flutterViewController = FlutterViewController.init()
+    let windowFrame = self.frame
+    self.contentViewController = flutterViewController
+    self.setFrame(windowFrame, display: true)
 
     RegisterGeneratedPlugins(registry: flutterViewController)
     RecentFilesPlugin.register(with: flutterViewController.registrar(forPlugin: "RecentFilesPlugin"))
-
-    let assets = NSURL.fileURL(withPath: "flutter_assets", relativeTo: Bundle.main.resourceURL)
-    var arguments: [String] = [];
-    #if !DEBUG	
-      arguments.append("--disable-dart-asserts");	
-    #endif
-    flutterViewController.launchEngine(
-      withAssetsPath: assets,
-      commandLineArguments: arguments)
-
     super.awakeFromNib()
   }
 }

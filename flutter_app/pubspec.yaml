@@ -17,12 +17,12 @@ dependencies:
   file_chooser:
     git:
       url: git://github.com/google/flutter-desktop-embedding.git
-      ref: 1678518f00d3eab88b3afe44f0d13a52336cbbdf
+      ref: 0ef2e6eaaf62477f8b8e3d7180ac82f4263815d7
       path: plugins/file_chooser
   menubar:
     git:
       url: git://github.com/google/flutter-desktop-embedding.git
-      ref: 1678518f00d3eab88b3afe44f0d13a52336cbbdf
+      ref: 0ef2e6eaaf62477f8b8e3d7180ac82f4263815d7
       path: plugins/menubar
 
 dev_dependencies:
@@ -34,7 +34,6 @@ flutter:
 
   assets:
   - assets/fonts/GoogleSans/
-  - assets/spritewidget/
   - assets/flare/
 
   fonts:
