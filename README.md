@@ -21,7 +21,7 @@ For more details on the [presentation file structure](https://github.com/flutter
 
 ### Requirements
 - Flutter on the `master` channel. FDE is still not stable, so you may need to do some tweaking to get it running.  The last verified working Flutter version is `1.10.6-pre.40` on 09/24/2019.
-- Ensure that the Xcode section of `flutter doctor` does not list any issues with the version of Flutter above.
+- Ensure that the Xcode section of `flutter doctor` does not list any issues with the version of Flutter you are currently on.
 
 ### Running
 Change your dir to `flutter_app` and run `flutter run`.
