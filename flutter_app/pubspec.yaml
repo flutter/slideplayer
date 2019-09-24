@@ -1,6 +1,9 @@
 name: flutter_slides
 description: An app for running a slide presentation.
 
+environment:
+  flutter: ">=1.10.6-pre.40"
+
 dependencies:
   flutter:
     sdk: flutter
