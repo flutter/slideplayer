@@ -20,7 +20,7 @@ For more details on the [presentation file structure](https://github.com/flutter
 ## Building 
 
 ### Requirements
-- Flutter version `v1.7.8+hotfix.3`, but not on the `stable` channel. Older or newer versions of Flutter are likely to be incompatible. Run `flutter version 1.7.8+hotfix.3` to check out a compatible version.
+- Flutter on the `master` channel. FDE is still not stable, so you may need to do some tweaking to get it running.  The last verified working Flutter version is `1.10.6-pre.40` on 09/24/2019.
 - Ensure that the Xcode section of `flutter doctor` does not list any issues with the version of Flutter above.
 
 ### Running
