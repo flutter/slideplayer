@@ -1,9 +1,9 @@
 # Flutter Slides
 
-Flutter Slides utilizes [Flutter Desktop Embedding](https://github.com/google/flutter-desktop-embedding) to provide a simple slide presentation app.  Presentations are data driven from files on the disk, so users can create their own presentations without needing to update any code in the project. 
-  
+Flutter Slides utilizes [Flutter's in-progress support for Desktop](https://flutter.dev/desktop) to provide a simple slide presentation app.  Presentations are data driven from files on the disk, so users can create their own presentations without needing to update any code in the project. 
+
 For more details on the [presentation file structure](https://github.com/flutter/slideplayer/wiki/Slide-Presentation-JSON-Structure), [animations](https://github.com/flutter/slideplayer/wiki/Slide-Presentation-JSON-Structure#animation-object), [content types](https://github.com/flutter/slideplayer/wiki/Content-Types), and [exporting and sharing a presentation](https://github.com/flutter/slideplayer/wiki/Exporting-and-Sharing-a-Presentation), see the [wiki page](https://github.com/flutter/slideplayer/wiki).
-  
+
 ![\_](https://i.imgur.com/n3o7OZM.png)
 
 ## Features
@@ -14,17 +14,17 @@ For more details on the [presentation file structure](https://github.com/flutter
 - Custom Flutter content (requires code changes)
 
 # Getting Started
-  
+
 **Currently only macOS is supported.**  
 
-## Building 
+## Building
 
 ### Requirements
 - Flutter on the `master` channel.
 
 ### Running
 Change your dir to `flutter_app` and run `flutter run`.
-  
+
 Once it's running, you can open the file `flutter_live.json` in the `example_presentation` folder of the root of the project as a sample.
 
 ## Running the app
@@ -45,12 +45,11 @@ Once it's running, you can open the file `flutter_live.json` in the `example_pre
 
 **To change to a new slide in sidebar:**
 - `z + click` on the slide
-   
+
 **To present fullscreen**
 - `cmd + ctl + F`
 - or, select the green "full screen" button in the upper left of the window
-   
+
 **To leave fullscreen**
 - `cmd + ctl + F`
 - or, move your cursor to the top of the screen and tap the green button in upper left
-
