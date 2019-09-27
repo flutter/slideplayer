@@ -11,4 +11,4 @@ PRODUCT_NAME = Flutter Slides
 PRODUCT_BUNDLE_IDENTIFIER = io.flutter.flutterslides  
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2019 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright (C) 2017 The Chromium Authors
