@@ -8,7 +8,7 @@
 PRODUCT_NAME = Flutter Slides
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.flutterApp
+PRODUCT_BUNDLE_IDENTIFIER = io.flutter.flutterslides  
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2019 com.example. All rights reserved.

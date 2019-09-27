@@ -445,7 +445,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.flutterslides;
+				PRODUCT_BUNDLE_IDENTIFIER = io.flutter.flutterslides;
 				PRODUCT_NAME = "Flutter Slides";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -579,7 +579,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.flutterslides;
+				PRODUCT_BUNDLE_IDENTIFIER = io.flutter.flutterslides;
 				PRODUCT_NAME = "Flutter Slides";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -607,7 +607,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.flutterslides;
+				PRODUCT_BUNDLE_IDENTIFIER = io.flutter.flutterslides;
 				PRODUCT_NAME = "Flutter Slides";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
