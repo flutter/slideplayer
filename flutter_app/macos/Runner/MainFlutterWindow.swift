@@ -26,7 +26,6 @@ class MainFlutterWindow: NSWindow {
     self.setFrame(windowFrame, display: true)
 
     RegisterGeneratedPlugins(registry: flutterViewController)
-    RecentFilesPlugin.register(with: flutterViewController.registrar(forPlugin: "RecentFilesPlugin"))
     super.awakeFromNib()
   }
 }

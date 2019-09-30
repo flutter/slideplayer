@@ -7,6 +7,7 @@ import 'package:flutter_slides/models/slide_factors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:watcher/watcher.dart';
 import 'package:flutter_slides/utils/color_utils.dart' as ColorUtils;
 
@@ -101,8 +102,9 @@ class FlutterSlidesModel extends Model {
       }
       loadedSlides.slides = slideList;
       loadedSlides.notifyListeners();
-      MethodChannel('FlutterSlides:CustomPlugin', const JSONMethodCodec())
-          .invokeMethod('set', filePath);
+      SharedPreferences.getInstance().then((prefs) {
+        prefs.setString('last_opened_file_path', filePath);
+      });
     } catch (e) {
       print("Error loading slides file: $e");
     }
