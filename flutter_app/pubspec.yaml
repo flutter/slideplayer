@@ -2,7 +2,7 @@ name: flutter_slides
 description: An app for running a slide presentation.
 
 environment:
-  flutter: ">=1.10.6-pre.40"
+  flutter: ">=1.10.7-pre.94"
 
 dependencies:
   flutter:
@@ -20,12 +20,12 @@ dependencies:
   file_chooser:
     git:
       url: git://github.com/google/flutter-desktop-embedding.git
-      ref: 0ef2e6eaaf62477f8b8e3d7180ac82f4263815d7
+      ref: 403355819d784ab51af55e5de556de03618996ba
       path: plugins/file_chooser
   menubar:
     git:
       url: git://github.com/google/flutter-desktop-embedding.git
-      ref: 0ef2e6eaaf62477f8b8e3d7180ac82f4263815d7
+      ref: 403355819d784ab51af55e5de556de03618996ba
       path: plugins/menubar
   shared_preferences_fde:
     git:
