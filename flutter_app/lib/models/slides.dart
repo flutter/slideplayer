@@ -129,7 +129,7 @@ class FlutterSlidesModel extends Model {
       loadedSlides.slides = slideList;
       loadedSlides.notifyListeners();
       SharedPreferences.getInstance().then((prefs) {
-        prefs.setString('last_opened_file_path', filePath);
+        prefs.setString(_RECENTLY_OPENED_FILE_PREFS_KEY, filePath);
       });
     } catch (e) {
       print("Error loading slides file: $e");
