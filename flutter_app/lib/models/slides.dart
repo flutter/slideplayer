@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:flutter_slides/models/slide.dart';
 import 'package:flutter_slides/models/slide_factors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:watcher/watcher.dart';

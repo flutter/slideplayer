@@ -173,6 +173,7 @@ class _SlidePresentationState extends State<SlidePresentation>
         child: NotificationListener<ScrollNotification>(
           onNotification: (notification) {
             _lastSlideListScrollOffset = notification.metrics.pixels;
+            return true;
           },
           child: ListView.builder(
             controller: ScrollController(
