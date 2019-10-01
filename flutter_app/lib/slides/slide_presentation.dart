@@ -252,7 +252,7 @@ class _SlidePresentationState extends State<SlidePresentation>
                 height: 60.0,
                 color: buttonColor,
                 onPressed: () {
-                  loadRecentlyOpenedSlideData();
+                  loadSlideDataFromFileChooser();
                 },
                 child: Text(
                   'Open',

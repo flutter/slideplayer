@@ -34,7 +34,7 @@ void loadRecentlyOpenedSlideData() {
   );
 }
 
-_loadSlidesData(String filePath) {
+void _loadSlidesData(String filePath) {
   loadedSlides.loadSlidesData(filePath);
 }
 
