@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'package:file_chooser/file_chooser.dart' as file_chooser;
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SlidePresentation extends StatefulWidget {
   @override
@@ -42,13 +40,7 @@ class _SlidePresentationState extends State<SlidePresentation>
       duration: Duration(milliseconds: 250),
     );
 
-
-    SharedPreferences.getInstance().then((prefs) {
-      String filePath = prefs.getString('last_opened_file_path');
-      if (filePath != null) {
-        FlutterSlidesModel().loadSlidesData(filePath);
-      }
-    });
+    loadRecentlyOpenedSlideData();
   }
 
   @override
@@ -260,11 +252,7 @@ class _SlidePresentationState extends State<SlidePresentation>
                 height: 60.0,
                 color: buttonColor,
                 onPressed: () {
-                  file_chooser.showOpenPanel((result, paths) {
-                    if (paths != null) {
-                      FlutterSlidesModel().loadSlidesData(paths.first);
-                    }
-                  }, allowsMultipleSelection: false);
+                  loadRecentlyOpenedSlideData();
                 },
                 child: Text(
                   'Open',

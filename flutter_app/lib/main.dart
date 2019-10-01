@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride, kIsWeb;
 import 'package:flutter/material.dart';
 
-import 'package:file_chooser/file_chooser.dart' as file_chooser;
 import 'package:menubar/menubar.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -24,14 +23,11 @@ void main() {
   setApplicationMenu([
     Submenu(label: 'File', children: [
       MenuItem(
-          label: 'Open',
-          onClicked: () {
-            file_chooser.showOpenPanel((result, paths) {
-              if (paths != null) {
-                FlutterSlidesModel().loadSlidesData(paths.first);
-              }
-            }, allowsMultipleSelection: false);
-          }),
+        label: 'Open',
+        onClicked: () {
+          loadSlideDataFromFileChooser();
+        },
+      ),
     ]),
   ]);
   runApp(_MyApp());
