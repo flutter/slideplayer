@@ -65,8 +65,7 @@ class _AnimatedContentWidgetState extends State<AnimatedContentWidget>
     _scaleAnimation = widget.scale.animate(_animation);
     if (widget.completeAnimation) {
       _controller.value = 1.0;
-    }
-    else {
+    } else {
       try {
         Future.delayed(Duration(milliseconds: widget.delay)).then((_) {
           if (mounted) _controller?.forward(from: 0.0);

@@ -38,12 +38,6 @@
       "languageVersion": "2.0"
     },
     {
-      "name": "color_panel",
-      "rootUri": "../../../flutter-desktop-embedding/plugins/color_panel",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
       "name": "convert",
       "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/convert-2.1.1",
       "packageUri": "lib/",
@@ -63,7 +57,7 @@
     },
     {
       "name": "file_chooser",
-      "rootUri": "../../../flutter-desktop-embedding/plugins/file_chooser",
+      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/git/flutter-desktop-embedding-403355819d784ab51af55e5de556de03618996ba/plugins/file_chooser",
       "packageUri": "lib/",
       "languageVersion": "2.1"
     },
@@ -92,6 +86,12 @@
       "languageVersion": "2.2"
     },
     {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/packages/flutter_web_plugins",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "image",
       "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/image-2.1.4",
       "packageUri": "lib/",
@@ -111,7 +111,7 @@
     },
     {
       "name": "menubar",
-      "rootUri": "../../../flutter-desktop-embedding/plugins/menubar",
+      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/git/flutter-desktop-embedding-403355819d784ab51af55e5de556de03618996ba/plugins/menubar",
       "packageUri": "lib/",
       "languageVersion": "2.1"
     },
@@ -160,6 +160,36 @@
     {
       "name": "scoped_model",
       "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/scoped_model-0.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "shared_preferences",
+      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.6+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "shared_preferences_fde",
+      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/git/flutter-desktop-embedding-403355819d784ab51af55e5de556de03618996ba/plugins/flutter_plugins/shared_preferences_fde",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "shared_preferences_macos",
+      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-0.0.1+6",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "shared_preferences_platform_interface",
+      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_platform_interface-1.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "shared_preferences_web",
+      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-0.1.2+4",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -241,7 +271,7 @@
       "packageUri": "lib/"
     }
   ],
-  "generated": "2020-02-24T04:24:22.235682Z",
+  "generated": "2020-02-24T04:26:52.266245Z",
   "generator": "pub",
   "generatorVersion": "2.8.0-dev.9.0.flutter-0f141be8bd"
 }

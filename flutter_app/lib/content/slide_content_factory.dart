@@ -42,7 +42,7 @@ class SlideContentFactory {
     register('rect', (params) => RectContent(contentMap: params.contentMap));
     register(
       'label',
-          (params) => LabelContent.fromContentMap(
+      (params) => LabelContent.fromContentMap(
         contentMap: params.contentMap,
         fontScaleFactor: params.normalizationMultipliers.font,
       ),
@@ -51,21 +51,21 @@ class SlideContentFactory {
     register('lottie_animation',
         (params) => LottieContent(contentMap: params.contentMap));
     register('nima_actor',
-            (params) => NimaActorContent(contentMap: params.contentMap));
+        (params) => NimaActorContent(contentMap: params.contentMap));
     register('flare_actor',
-            (params) => FlareActorContent(contentMap: params.contentMap));
+        (params) => FlareActorContent(contentMap: params.contentMap));
     register(
         'desktop_embedding',
-            (params) => DesktopEmbeddingContent(
+        (params) => DesktopEmbeddingContent(
             normalizationMultipliers: params.normalizationMultipliers));
     register(
         'coding_rolodex_screen',
-            (params) => CodingRolodexContent(
+        (params) => CodingRolodexContent(
             shouldAnimate: !params.isPreview,
             normMultis: params.normalizationMultipliers));
     register(
       'main_title_slide',
-          (params) => MainTitleContent(
+      (params) => MainTitleContent(
         contentMap: params.contentMap,
         shouldAnimate: !params.isPreview,
         normMultis: params.normalizationMultipliers,

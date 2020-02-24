@@ -3,11 +3,9 @@ import 'package:flutter_slides/content/rolodex_animation.dart';
 import 'package:flutter/material.dart';
 
 class CodingRolodexContent extends StatefulWidget {
-  CodingRolodexContent({
-    Key key,
-    this.shouldAnimate = true,
-    @required this.normMultis
-  }) : super(key: key);
+  CodingRolodexContent(
+      {Key key, this.shouldAnimate = true, @required this.normMultis})
+      : super(key: key);
 
   final bool shouldAnimate;
   final NormalizationMultipliers normMultis;

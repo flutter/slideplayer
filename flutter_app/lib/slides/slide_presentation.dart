@@ -251,7 +251,7 @@ class _SlidePresentationState extends State<SlidePresentation>
                 minWidth: 200.0,
                 height: 60.0,
                 color: buttonColor,
-               onPressed: () {
+                onPressed: () {
                   loadSlideDataFromFileChooser();
                 },
                 child: Text(

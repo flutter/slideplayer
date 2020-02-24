@@ -23,10 +23,10 @@ void main() {
   setApplicationMenu([
     Submenu(label: 'File', children: [
       MenuItem(
-       label: 'Open',
-        onClicked: () {
-          loadSlideDataFromFileChooser();
-        }),
+          label: 'Open',
+          onClicked: () {
+            loadSlideDataFromFileChooser();
+          }),
     ]),
   ]);
   runApp(_MyApp());

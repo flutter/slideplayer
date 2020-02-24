@@ -7,7 +7,6 @@ Color colorFromString(String colorString, {Color errorColor}) {
     if (colorString.startsWith('#')) {
       formattedString =
           '0x${colorString.substring(colorString.length - 2)}${colorString.substring(1, colorString.length - 2)}';
-
     } else {
       //0XAARRGGBB format
       formattedString = colorString;

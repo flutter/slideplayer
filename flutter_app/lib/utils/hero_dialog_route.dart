@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HeroDialogRoute<T> extends PageRoute<T> {
-  HeroDialogRoute({ this.builder }) : super();
+  HeroDialogRoute({this.builder}) : super();
 
   final WidgetBuilder builder;
 
@@ -21,14 +21,11 @@ class HeroDialogRoute<T> extends PageRoute<T> {
   Color get barrierColor => Colors.black54;
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
     return FadeTransition(
-        opacity: CurvedAnimation(
-            parent: animation,
-            curve: Curves.easeOut
-        ),
-        child: child
-    );
+        opacity: CurvedAnimation(parent: animation, curve: Curves.easeOut),
+        child: child);
   }
 
   @override
