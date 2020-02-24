@@ -1,6 +1,9 @@
 name: flutter_slides
 description: An app for running a slide presentation.
 
+environment:
+  flutter: ">=1.10.7-pre.94"
+
 dependencies:
   flutter:
     sdk: flutter
@@ -10,17 +13,28 @@ dependencies:
   watcher: ^0.9.7+10
   lottie_flutter: ^0.2.0
   spritewidget: ^0.9.17
-  flare_flutter: ^1.0.11
-  nima: ^1.0.2
-
+  flare_flutter: ^1.5.4
+  nima: ^1.0.5
 
   # Desktop embedder plugins.
-  color_panel:
-    path: ../../flutter-desktop-embedding/plugins/color_panel
   file_chooser:
-    path: ../../flutter-desktop-embedding/plugins/file_chooser
+    git:
+      url: git://github.com/google/flutter-desktop-embedding.git
+      ref: 403355819d784ab51af55e5de556de03618996ba
+      path: plugins/file_chooser
   menubar:
-    path: ../../flutter-desktop-embedding/plugins/menubar
+    git:
+      url: git://github.com/google/flutter-desktop-embedding.git
+      ref: 403355819d784ab51af55e5de556de03618996ba
+      path: plugins/menubar
+  shared_preferences_fde:
+    git:
+      url: git://github.com/google/flutter-desktop-embedding.git
+      ref: 403355819d784ab51af55e5de556de03618996ba
+      path: plugins/flutter_plugins/shared_preferences_fde
+
+  # Flutter plugins
+  shared_preferences: ^0.5.3+4
 
 dev_dependencies:
   flutter_test:

@@ -5,12 +5,38 @@ import 'dart:io';
 import 'package:flutter_slides/models/slide.dart';
 import 'package:flutter_slides/models/slide_factors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:watcher/watcher.dart';
 import 'package:flutter_slides/utils/color_utils.dart' as ColorUtils;
+import 'package:file_chooser/file_chooser.dart' as file_chooser;
 
 FlutterSlidesModel loadedSlides = FlutterSlidesModel();
+
+const _RECENTLY_OPENED_FILE_PREFS_KEY = 'last_opened_file_path';
+
+void loadSlideDataFromFileChooser() {
+  file_chooser.showOpenPanel((result, paths) {
+    if (paths != null) {
+      _loadSlidesData(paths.first);
+    }
+  }, allowsMultipleSelection: false);
+}
+
+void loadRecentlyOpenedSlideData() {
+  SharedPreferences.getInstance().then(
+    (prefs) {
+      String filePath = prefs.getString(_RECENTLY_OPENED_FILE_PREFS_KEY);
+      if (filePath != null) {
+        _loadSlidesData(filePath);
+      }
+    },
+  );
+}
+
+void _loadSlidesData(String filePath) {
+  loadedSlides.loadSlidesData(filePath);
+}
 
 class FlutterSlidesModel extends Model {
   List<Slide> slides;
@@ -48,7 +74,8 @@ class FlutterSlidesModel extends Model {
           fileString = fileString.replaceAll(
               "\"@replace/${entry.key}\"", entry.value.toString());
         }
-        _replaceFileSubscription = Watcher(replaceFilePath).events.listen((event) {
+        _replaceFileSubscription =
+            Watcher(replaceFilePath).events.listen((event) {
           loadSlidesData(filePath);
           notifyListeners();
         });
@@ -101,8 +128,9 @@ class FlutterSlidesModel extends Model {
       }
       loadedSlides.slides = slideList;
       loadedSlides.notifyListeners();
-      MethodChannel('FlutterSlides:CustomPlugin', const JSONMethodCodec())
-          .invokeMethod('set', filePath);
+      SharedPreferences.getInstance().then((prefs) {
+        prefs.setString(_RECENTLY_OPENED_FILE_PREFS_KEY, filePath);
+      });
     } catch (e) {
       print("Error loading slides file: $e");
     }

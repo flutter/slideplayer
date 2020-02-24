@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'package:file_chooser/file_chooser.dart' as file_chooser;
 
 class SlidePresentation extends StatefulWidget {
   @override
@@ -41,13 +40,7 @@ class _SlidePresentationState extends State<SlidePresentation>
       duration: Duration(milliseconds: 250),
     );
 
-    MethodChannel('FlutterSlides:CustomPlugin', const JSONMethodCodec())
-        .invokeMethod('get')
-        .then((result) {
-      if (result != null) {
-        FlutterSlidesModel().loadSlidesData(result);
-      }
-    });
+    loadRecentlyOpenedSlideData();
   }
 
   @override
@@ -172,6 +165,7 @@ class _SlidePresentationState extends State<SlidePresentation>
         child: NotificationListener<ScrollNotification>(
           onNotification: (notification) {
             _lastSlideListScrollOffset = notification.metrics.pixels;
+            return true;
           },
           child: ListView.builder(
             controller: ScrollController(
@@ -257,12 +251,8 @@ class _SlidePresentationState extends State<SlidePresentation>
                 minWidth: 200.0,
                 height: 60.0,
                 color: buttonColor,
-                onPressed: () async {
-                  final result = await file_chooser.showOpenPanel(
-                      allowsMultipleSelection: false);
-                  if (result != null && !result.canceled) {
-                    FlutterSlidesModel().loadSlidesData(result.paths.first);
-                  }
+               onPressed: () {
+                  loadSlideDataFromFileChooser();
                 },
                 child: Text(
                   'Open',
@@ -283,8 +273,8 @@ class _SlidePresentationState extends State<SlidePresentation>
       case RawKeyUpEvent:
         int upKeyCode;
         switch (event.data.runtimeType) {
-          case RawKeyEventDataAndroid:
-            final RawKeyEventDataAndroid data = event.data;
+          case RawKeyEventDataMacOs:
+            final RawKeyEventDataMacOs data = event.data;
             upKeyCode = data.keyCode;
             if (upKeyCode == _lisTapKeycode) {
               listTapAllowed = false;
@@ -300,8 +290,8 @@ class _SlidePresentationState extends State<SlidePresentation>
 
     int keyCode;
     switch (event.data.runtimeType) {
-      case RawKeyEventDataAndroid:
-        final RawKeyEventDataAndroid data = event.data;
+      case RawKeyEventDataMacOs:
+        final RawKeyEventDataMacOs data = event.data;
         keyCode = data.keyCode;
         if (keyCode == 33) {
           _slideListController?.reverse();

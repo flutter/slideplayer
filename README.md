@@ -1,9 +1,9 @@
 # Flutter Slides
 
-Flutter Slides utilizes [Flutter Desktop Embedding](https://github.com/google/flutter-desktop-embedding) to provide a simple slide presentation app.  Presentations are data driven from files on the disk, so users can create their own presentations without needing to update any code in the project. 
-  
+Flutter Slides utilizes [Flutter's in-progress support for Desktop](https://flutter.dev/desktop) to provide a simple slide presentation app.  Presentations are data driven from files on the disk, so users can create their own presentations without needing to update any code in the project. 
+
 For more details on the [presentation file structure](https://github.com/flutter/slideplayer/wiki/Slide-Presentation-JSON-Structure), [animations](https://github.com/flutter/slideplayer/wiki/Slide-Presentation-JSON-Structure#animation-object), [content types](https://github.com/flutter/slideplayer/wiki/Content-Types), and [exporting and sharing a presentation](https://github.com/flutter/slideplayer/wiki/Exporting-and-Sharing-a-Presentation), see the [wiki page](https://github.com/flutter/slideplayer/wiki).
-  
+
 ![\_](https://i.imgur.com/n3o7OZM.png)
 
 ## Features
@@ -14,43 +14,17 @@ For more details on the [presentation file structure](https://github.com/flutter
 - Custom Flutter content (requires code changes)
 
 # Getting Started
-  
+
 **Currently only macOS is supported.**  
 
-## Building 
+## Building
 
 ### Requirements
-- XCode 10 or higher
-- Flutter tracking a recent version, preferably the Master branch ([Why?](https://github.com/google/flutter-desktop-embedding/blob/master/library/README.md#Caveats))
-
-**Flutter Desktop Embedding is constantly evolving, and you may need to tinker with your FDE checkout or Flutter version to get it running.  Please see the FDE repo for further information.**
-
-**As of March 28th, 2019**
-- Last FDE commit working on the Flutter stable branch (1.2.1): [306773e](https://github.com/google/flutter-desktop-embedding/commit/306773e5e429f299eaaf1867546bcbd7a7af5dab)
-- Flutter checkout required for the most recent version of FDE(currently [1ca25dc](https://github.com/google/flutter-desktop-embedding/commit/1ca25dc203a94f81202c86a3014aca69db817e55)): [dd23be3](https://github.com/flutter/flutter/commit/dd23be3936272b974709222af1a8309ab65244cc)
-
-
-### Setting Up
-
-The tooling and build infrastructure for this project requires that you have
-a Flutter tree and Flutter Desktop Embedding in the same parent directory as the clone 
-of this project:
-
-```
-<parent dir>
-  ├─ flutter (from http://github.com/flutter/flutter)
-  ├─ flutter-desktop-embedding (from https://github.com/google/flutter-desktop-embedding)
-  └─ flutter_slides (from https://github.com/flutter/slideplayer)
-```
-
-Alternately, you can place a `.flutter_location_config` file in the directory
-containing flutter-desktop-embedding, containing a path to the Flutter tree to
-use, if you prefer not to have the Flutter tree next to flutter-desktop-embedding.
+- Flutter on the `master` channel.
 
 ### Running
-Open `FlutterSlides.xcodeproj` under macos, and build and run the `Flutter Slides` target.
-If you happen to get a build error on your first run, try cleaning and running again.
-  
+Change your dir to `flutter_app` and run `flutter run`.
+
 Once it's running, you can open the file `flutter_live.json` in the `example_presentation` folder of the root of the project as a sample.
 
 ## Running the app
@@ -71,12 +45,11 @@ Once it's running, you can open the file `flutter_live.json` in the `example_pre
 
 **To change to a new slide in sidebar:**
 - `z + click` on the slide
-   
+
 **To present fullscreen**
 - `cmd + ctl + F`
 - or, select the green "full screen" button in the upper left of the window
-   
+
 **To leave fullscreen**
 - `cmd + ctl + F`
 - or, move your cursor to the top of the screen and tap the green button in upper left
-

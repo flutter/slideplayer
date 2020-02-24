@@ -1049,7 +1049,7 @@
               "text_align": "center",
               "x": 444.0,
               "y": 458.0,
-              "height": 120.0,
+              "height": 130.0,
               "width": 570.0,
               "animation": {
                   "curve": "easeOut",
@@ -1068,7 +1068,7 @@
               "text_align": "center",
               "x": 897.0,
               "y": 458.0,
-              "height": 120.0,
+              "height": 130.0,
               "width": 570.0,
               "animation": {
                   "curve": "easeOut",
