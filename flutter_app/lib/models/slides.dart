@@ -51,7 +51,7 @@ class FlutterSlidesModel extends ChangeNotifier {
   bool showDebugContainers = false;
   bool autoAdvance = false;
   int autoAdvanceDurationMillis = 30000;
-  
+
   bool _isPresenting = false;
   bool get isPresenting => _isPresenting;
   void setPresentationMode(bool value) {
@@ -59,6 +59,7 @@ class FlutterSlidesModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  String filePath;
   StreamSubscription _slidesFileSubscription;
   StreamSubscription _replaceFileSubscription;
   presUtils.Presentation _presentation;
@@ -67,6 +68,7 @@ class FlutterSlidesModel extends ChangeNotifier {
 
   Future<void> loadSlidesData(String filePath,
       [bool replaceValues = true]) async {
+    this.filePath = filePath;
     _slidesFileSubscription?.cancel();
     _replaceFileSubscription?.cancel();
     _slidesFileSubscription = Watcher(filePath).events.listen((event) {

@@ -31,33 +31,57 @@ class _SlideEditorState extends State<SlideEditor>
     return Container(
       child: Column(
         children: <Widget>[
-          Material(
-            elevation: 4.0,
-            child: Row(
-              children: [
-                Spacer(),
-                RaisedButton(
-                  child: Icon(Icons.play_arrow),
-                  onPressed: () => model.setPresentationMode(true),
-                ),
-              ],
-            ),
-          ),
+          _buildHeader(model),
           Container(height: 2.0),
+          _buildBody(model),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBody(FlutterSlidesModel model) {
+    return Expanded(
+      child: Row(
+        children: [
+          Container(
+            width: 300,
+            child: _slideList(model),
+          ),
           Expanded(
-            child: Row(
-              children: [
-                Container(
-                  width: 300,
-                  child: _slideList(model),
+            child: Container(
+              padding: EdgeInsets.all(20.0),
+              child: Center(
+                child: SlidePage(
+                  isPreview: true,
+                  slide: model.slides[_currentSlideIndex],
                 ),
-                Expanded(
-                  child: Container(),
-                ),
-              ],
+              ),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildHeader(FlutterSlidesModel model) {
+    return Material(
+      elevation: 4.0,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+        child: Row(
+          children: [
+            FlatButton.icon(
+              onPressed: () => loadSlideDataFromFileChooser(),
+              icon: Icon(Icons.folder),
+              label: Text(model.filePath.split('/').last),
+            ),
+            Spacer(),
+            RaisedButton(
+              child: Icon(Icons.play_arrow),
+              onPressed: () => model.setPresentationMode(true),
+            ),
+          ],
+        ),
       ),
     );
   }
