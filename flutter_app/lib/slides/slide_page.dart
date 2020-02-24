@@ -5,6 +5,7 @@ import 'package:flutter_slides/models/slide.dart';
 import 'package:flutter_slides/models/slides.dart';
 import 'package:flutter_slides/content/animated_content_widget.dart';
 import 'package:flutter/material.dart';
+import '../utils/menus.dart';
 
 class SlidePageController {
   _SlidePageControllerListener listener;
@@ -15,10 +16,16 @@ class SlidePageController {
 
   void exit() {
     _isPlayingListener.value = false;
+    if (listener != null) {
+      return listener.onExit();
+    }
   }
 
   void start() {
     _isPlayingListener.value = true;
+    if (listener != null) {
+      return listener.onStart();
+    }
   }
 
   bool advanceSlideContent() {
@@ -39,6 +46,8 @@ class SlidePageController {
 abstract class _SlidePageControllerListener {
   bool onAdvanceSlideContent();
   bool onReverseSlideContent();
+  void onExit();
+  void onStart();
 }
 
 class SlidePage extends StatefulWidget {
@@ -196,6 +205,24 @@ class SlidePageState extends State<SlidePage>
       });
       return true;
     }
+  }
+
+  @override
+  void onExit() {
+    if (mounted)
+      setState(() {
+        _slideAdvancementNotifier.value = 0;
+        _slideAdvancementCount = 0;
+      });
+  }
+
+  @override
+  void onStart() {
+    if (mounted)
+      setState(() {
+        _slideAdvancementNotifier.value = 0;
+        _slideAdvancementCount = 0;
+      });
   }
 }
 

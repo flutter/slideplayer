@@ -5,7 +5,9 @@ import 'package:flutter_slides/slides/slide_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:menubar/menubar.dart';
 import 'package:provider/provider.dart';
+import '../utils/menus.dart';
 
 class SlidePresentation extends StatefulWidget {
   @override
@@ -59,7 +61,41 @@ class _SlidePresentationState extends State<SlidePresentation>
   Widget build(BuildContext context) {
     FlutterSlidesModel model =
         Provider.of<FlutterSlidesModel>(context, listen: true);
-
+    setApplicationMenu([
+      fileMenu,
+      Submenu(label: 'Presentation', children: [
+        MenuItem(
+          label: 'Start',
+          shortcut: LogicalKeySet(LogicalKeyboardKey.meta,
+              LogicalKeyboardKey.control, LogicalKeyboardKey.keyP),
+          onClicked: () => _slidePageController?.start(),
+        ),
+        MenuItem(
+          label: 'Stop',
+          shortcut: LogicalKeySet(LogicalKeyboardKey.meta,
+              LogicalKeyboardKey.shift, LogicalKeyboardKey.keyQ),
+          onClicked: () => _slidePageController?.exit(),
+        ),
+        MenuItem(
+          label: 'Go to Start',
+          shortcut: LogicalKeySet(LogicalKeyboardKey.meta,
+              LogicalKeyboardKey.shift, LogicalKeyboardKey.keyS),
+          onClicked: () => _moveToSlideAtIndex(model, 0),
+        ),
+        MenuItem(
+          label: 'Next Slide',
+          shortcut: LogicalKeySet(
+              LogicalKeyboardKey.meta, LogicalKeyboardKey.bracketRight),
+          onClicked: () => _advancePresentation(model),
+        ),
+        MenuItem(
+          label: 'Previous Slide',
+          shortcut: LogicalKeySet(
+              LogicalKeyboardKey.meta, LogicalKeyboardKey.bracketLeft),
+          onClicked: () => _reversePresentation(model),
+        ),
+      ]),
+    ]);
     _autoAdvanceTimer?.cancel();
     if (model.autoAdvance) {
       _autoAdvanceTimer = Timer.periodic(
@@ -299,7 +335,10 @@ class _SlidePresentationState extends State<SlidePresentation>
       case RawKeyEventDataMacOs:
         final RawKeyEventDataMacOs data = event.data;
         keyCode = data.keyCode;
-        if (keyCode == 33) {
+        if (keyCode == 53) {
+          _moveToSlideAtIndex(model, 0);
+          _slidePageController?.exit();
+        } else if (keyCode == 33) {
           _slideListController?.reverse();
         } else if (keyCode == 49) {
           _advancePresentation(model);
