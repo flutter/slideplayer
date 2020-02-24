@@ -31,7 +31,6 @@ flutter:
 
   assets:
   - assets/fonts/GoogleSans/
-  - assets/spritewidget/
   - assets/flare/
 
   fonts:
