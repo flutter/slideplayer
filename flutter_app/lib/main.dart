@@ -16,12 +16,12 @@ void main() {
     Submenu(label: 'File', children: [
       MenuItem(
           label: 'Open',
-          onClicked: () {
-            file_chooser.showOpenPanel((result, paths) {
-              if (paths != null) {
-                FlutterSlidesModel().loadSlidesData(paths.first);
-              }
-            }, allowsMultipleSelection: false);
+          onClicked: () async {
+            final result = await file_chooser.showOpenPanel(
+                allowsMultipleSelection: false);
+            if (result != null && !result.canceled) {
+              FlutterSlidesModel().loadSlidesData(result.paths.first);
+            }
           }),
     ]),
   ]);

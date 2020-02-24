@@ -257,12 +257,12 @@ class _SlidePresentationState extends State<SlidePresentation>
                 minWidth: 200.0,
                 height: 60.0,
                 color: buttonColor,
-                onPressed: () {
-                  file_chooser.showOpenPanel((result, paths) {
-                    if (paths != null) {
-                      FlutterSlidesModel().loadSlidesData(paths.first);
-                    }
-                  }, allowsMultipleSelection: false);
+                onPressed: () async {
+                  final result = await file_chooser.showOpenPanel(
+                      allowsMultipleSelection: false);
+                  if (result != null && !result.canceled) {
+                    FlutterSlidesModel().loadSlidesData(result.paths.first);
+                  }
                 },
                 child: Text(
                   'Open',
