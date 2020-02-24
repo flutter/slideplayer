@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_slides/models/slide.dart';
+import 'package:flutter_slides/classes/presentation.dart' as presUtils;
 import 'package:flutter_slides/models/slide_factors.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -54,7 +55,7 @@ class FlutterSlidesModel extends ChangeNotifier {
   StreamSubscription _slidesFileSubscription;
   StreamSubscription _replaceFileSubscription;
 
-  void loadSlidesData(String filePath) {
+  Future<void> loadSlidesData(String filePath) async {
     _slidesFileSubscription?.cancel();
     _replaceFileSubscription?.cancel();
     _slidesFileSubscription = Watcher(filePath).events.listen((event) {
@@ -79,11 +80,13 @@ class FlutterSlidesModel extends ChangeNotifier {
           notifyListeners();
         });
       }
+      presUtils.Presentation p =
+          await presUtils.backgroundPresentationFromJson(fileString);
       Map json = jsonDecode(fileString);
-      loadedSlides.slideWidth = (json['slide_width'] ?? 1920.0).toDouble();
-      loadedSlides.slideHeight = (json['slide_height'] ?? 1080.0).toDouble();
+      loadedSlides.slideWidth = (p?.slideWidth ?? 1920.0).toDouble();
+      loadedSlides.slideHeight = (p?.slideHeight ?? 1080.0).toDouble();
       loadedSlides.fontScaleFactor =
-          (json['font_scale_factor'] ?? loadedSlides.slideWidth).toDouble();
+          (p?.fontScaleFactor ?? loadedSlides.slideWidth).toDouble();
       loadedSlides.projectBGColor =
           ColorUtils.colorFromString(json['project_bg_color']) ??
               loadedSlides.projectBGColor;

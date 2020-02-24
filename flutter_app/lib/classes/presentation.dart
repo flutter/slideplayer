@@ -15,9 +15,9 @@ Presentation presentationFromJson(String str) =>
 String presentationToJson(Presentation data) => json.encode(data.toJson());
 
 class Presentation {
-  int slideWidth;
-  int slideHeight;
-  int fontScaleFactor;
+  double slideWidth;
+  double slideHeight;
+  double fontScaleFactor;
   String projectBgColor;
   String projectSlideListBgColor;
   String projectSlideListHighlightColor;
@@ -42,9 +42,9 @@ class Presentation {
   });
 
   Presentation copyWith({
-    int slideWidth,
-    int slideHeight,
-    int fontScaleFactor,
+    double slideWidth,
+    double slideHeight,
+    double fontScaleFactor,
     String projectBgColor,
     String projectSlideListBgColor,
     String projectSlideListHighlightColor,
