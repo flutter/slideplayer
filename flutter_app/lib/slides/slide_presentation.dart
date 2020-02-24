@@ -5,7 +5,7 @@ import 'package:flutter_slides/slides/slide_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:provider/provider.dart';
 
 class SlidePresentation extends StatefulWidget {
   @override
@@ -57,8 +57,7 @@ class _SlidePresentationState extends State<SlidePresentation>
 
   @override
   Widget build(BuildContext context) {
-    FlutterSlidesModel model =
-        ScopedModel.of<FlutterSlidesModel>(context, rebuildOnChange: true);
+    FlutterSlidesModel model = Provider.of<FlutterSlidesModel>(context, listen: true);
 
     _autoAdvanceTimer?.cancel();
     if (model.autoAdvance) {

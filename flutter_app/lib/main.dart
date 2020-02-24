@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart'
 import 'package:flutter/material.dart';
 
 import 'package:menubar/menubar.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:provider/provider.dart';
 
 // Sets a platform override for desktop to avoid exceptions. See
 // https://flutter.dev/desktop#target-platform-override for more info.
@@ -38,8 +38,8 @@ void main() {
 class _MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScopedModel<FlutterSlidesModel>(
-      model: loadedSlides,
+    return Provider<FlutterSlidesModel>.value(
+      value: loadedSlides,
       child: DefaultTextStyle(
         style: TextStyle(fontFamily: 'GoogleSans'),
         child: MaterialApp(

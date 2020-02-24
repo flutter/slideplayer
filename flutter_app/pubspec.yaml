@@ -7,9 +7,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  provider: ^4.0.4
 
   cupertino_icons: ^0.1.0
-  scoped_model: ^0.3.0
+
   watcher: ^0.9.7+10
   lottie_flutter: ^0.2.0
   spritewidget: ^0.9.17

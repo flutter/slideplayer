@@ -122,6 +122,12 @@
       "languageVersion": "1.12"
     },
     {
+      "name": "nested",
+      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/nested-0.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "nima",
       "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/nima-1.0.5",
       "packageUri": "lib/",
@@ -152,14 +158,14 @@
       "languageVersion": "2.4"
     },
     {
-      "name": "quiver",
-      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.0.5",
+      "name": "provider",
+      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/provider-4.0.4",
       "packageUri": "lib/",
-      "languageVersion": "2.0"
+      "languageVersion": "2.2"
     },
     {
-      "name": "scoped_model",
-      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/scoped_model-0.3.0",
+      "name": "quiver",
+      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -265,7 +271,7 @@
       "packageUri": "lib/"
     }
   ],
-  "generated": "2020-02-24T04:31:09.279819Z",
+  "generated": "2020-02-24T04:41:39.591120Z",
   "generator": "pub",
   "generatorVersion": "2.8.0-dev.9.0.flutter-0f141be8bd"
 }

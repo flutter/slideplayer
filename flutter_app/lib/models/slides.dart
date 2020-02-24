@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:flutter_slides/models/slide.dart';
 import 'package:flutter_slides/models/slide_factors.dart';
 import 'package:flutter/material.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:watcher/watcher.dart';
 import 'package:flutter_slides/utils/color_utils.dart' as ColorUtils;
@@ -38,7 +38,7 @@ void _loadSlidesData(String filePath) {
   loadedSlides.loadSlidesData(filePath);
 }
 
-class FlutterSlidesModel extends Model {
+class FlutterSlidesModel extends ChangeNotifier {
   List<Slide> slides;
   String externalFilesRoot;
   double slideWidth = 1920.0;
