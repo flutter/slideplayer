@@ -38,7 +38,7 @@ void main() {
 class _MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Provider<FlutterSlidesModel>.value(
+    return ChangeNotifierProvider<FlutterSlidesModel>.value(
       value: loadedSlides,
       child: DefaultTextStyle(
         style: TextStyle(fontFamily: 'GoogleSans'),
