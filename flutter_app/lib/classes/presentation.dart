@@ -15,16 +15,16 @@ Presentation presentationFromJson(String str) =>
 String presentationToJson(Presentation data) => json.encode(data.toJson());
 
 class Presentation {
-  double slideWidth;
-  double slideHeight;
-  double fontScaleFactor;
+  num slideWidth;
+  num slideHeight;
+  num fontScaleFactor;
   String projectBgColor;
   String projectSlideListBgColor;
   String projectSlideListHighlightColor;
   bool showDebugContainers;
   bool animateSlideTransitions;
   bool autoAdvance;
-  int autoAdvanceDurationMillis;
+  num autoAdvanceDurationMillis;
   List<Slide> slides;
 
   Presentation({
@@ -42,16 +42,16 @@ class Presentation {
   });
 
   Presentation copyWith({
-    double slideWidth,
-    double slideHeight,
-    double fontScaleFactor,
+    num slideWidth,
+    num slideHeight,
+    num fontScaleFactor,
     String projectBgColor,
     String projectSlideListBgColor,
     String projectSlideListHighlightColor,
     bool showDebugContainers,
     bool animateSlideTransitions,
     bool autoAdvance,
-    int autoAdvanceDurationMillis,
+    num autoAdvanceDurationMillis,
     List<Slide> slides,
   }) =>
       Presentation(
@@ -105,7 +105,7 @@ class Presentation {
 class Slide {
   String bgColor;
   List<Content> content;
-  int advancementCount;
+  num advancementCount;
   bool animatedTransition;
 
   Slide({
@@ -118,7 +118,7 @@ class Slide {
   Slide copyWith({
     String bgColor,
     List<Content> content,
-    int advancementCount,
+    num advancementCount,
     bool animatedTransition,
   }) =>
       Slide(
@@ -151,36 +151,36 @@ class Slide {
 
 class Content {
   String type;
-  int x;
-  int y;
-  int height;
-  int width;
-  int scrollTo;
+  num x;
+  num y;
+  num height;
+  num width;
+  num scrollTo;
   dynamic lineHeight;
   List<String> wordList;
-  int rowCount;
-  int columnCount;
+  num rowCount;
+  num columnCount;
   bool shuffleInitial;
-  int seed;
-  int minShownDurationMilliseconds;
-  int extraShownDurationMaxMilliseconds;
-  int blinkDurationMilliseconds;
+  num seed;
+  num minShownDurationMilliseconds;
+  num extraShownDurationMaxMilliseconds;
+  num blinkDurationMilliseconds;
   List<String> colors;
   List<String> photoFiles;
   String file;
   Animation animation;
   bool debugOverflow;
   bool debugLock;
-  int debugLockedControllerPosition;
-  int debugLockedStageValue;
-  int titleFontSizeMin;
-  int titleFontSizeMax;
-  int subtitleFontSizeMin;
-  int subtitleFontSizeMax;
-  int subtilePaddingTop;
-  int orbSize;
+  num debugLockedControllerPosition;
+  num debugLockedStageValue;
+  num titleFontSizeMin;
+  num titleFontSizeMax;
+  num subtitleFontSizeMin;
+  num subtitleFontSizeMax;
+  num subtilePaddingTop;
+  num orbSize;
   String orbImagePath;
-  int controllerDuration;
+  num controllerDuration;
   Beautiful beautiful;
   Beautiful fast;
   Beautiful productive;
@@ -195,26 +195,26 @@ class Content {
   String fontColor;
   dynamic letterSpacing;
   String textAlign;
-  int delayInMilliseconds;
+  num delayInMilliseconds;
   String fontFamily;
   bool strikeThrough;
   String asset;
   String animationName;
-  int defaultPage;
+  num defaultPage;
   bool debugColors;
-  int initChangeDurationMillis;
-  int pageChangeDurationMillis;
-  int pageChangeAnimationDurationMillis;
+  num initChangeDurationMillis;
+  num pageChangeDurationMillis;
+  num pageChangeAnimationDurationMillis;
   String pageChangeCurve;
-  int imageHeightMin;
-  int imageHeightMax;
-  int containerHeightMin;
-  int containerHeightMax;
-  double viewportFraction;
-  int titleTopPadding;
+  num imageHeightMin;
+  num imageHeightMax;
+  num containerHeightMin;
+  num containerHeightMax;
+  num viewportFraction;
+  num titleTopPadding;
   String titleFontColor;
   List<CellDatum> cellData;
-  int advancementStep;
+  num advancementStep;
 
   Content({
     this.type,
@@ -286,36 +286,36 @@ class Content {
 
   Content copyWith({
     String type,
-    int x,
-    int y,
-    int height,
-    int width,
-    int scrollTo,
+    num x,
+    num y,
+    num height,
+    num width,
+    num scrollTo,
     dynamic lineHeight,
     List<String> wordList,
-    int rowCount,
-    int columnCount,
+    num rowCount,
+    num columnCount,
     bool shuffleInitial,
-    int seed,
-    int minShownDurationMilliseconds,
-    int extraShownDurationMaxMilliseconds,
-    int blinkDurationMilliseconds,
+    num seed,
+    num minShownDurationMilliseconds,
+    num extraShownDurationMaxMilliseconds,
+    num blinkDurationMilliseconds,
     List<String> colors,
     List<String> photoFiles,
     String file,
     Animation animation,
     bool debugOverflow,
     bool debugLock,
-    int debugLockedControllerPosition,
-    int debugLockedStageValue,
-    int titleFontSizeMin,
-    int titleFontSizeMax,
-    int subtitleFontSizeMin,
-    int subtitleFontSizeMax,
-    int subtilePaddingTop,
-    int orbSize,
+    num debugLockedControllerPosition,
+    num debugLockedStageValue,
+    num titleFontSizeMin,
+    num titleFontSizeMax,
+    num subtitleFontSizeMin,
+    num subtitleFontSizeMax,
+    num subtilePaddingTop,
+    num orbSize,
     String orbImagePath,
-    int controllerDuration,
+    num controllerDuration,
     Beautiful beautiful,
     Beautiful fast,
     Beautiful productive,
@@ -330,26 +330,26 @@ class Content {
     String fontColor,
     dynamic letterSpacing,
     String textAlign,
-    int delayInMilliseconds,
+    num delayInMilliseconds,
     String fontFamily,
     bool strikeThrough,
     String asset,
     String animationName,
-    int defaultPage,
+    num defaultPage,
     bool debugColors,
-    int initChangeDurationMillis,
-    int pageChangeDurationMillis,
-    int pageChangeAnimationDurationMillis,
+    num initChangeDurationMillis,
+    num pageChangeDurationMillis,
+    num pageChangeAnimationDurationMillis,
     String pageChangeCurve,
-    int imageHeightMin,
-    int imageHeightMax,
-    int containerHeightMin,
-    int containerHeightMax,
-    double viewportFraction,
-    int titleTopPadding,
+    num imageHeightMin,
+    num imageHeightMax,
+    num containerHeightMin,
+    num containerHeightMax,
+    num viewportFraction,
+    num titleTopPadding,
     String titleFontColor,
     List<CellDatum> cellData,
-    int advancementStep,
+    num advancementStep,
   }) =>
       Content(
         type: type ?? this.type,
@@ -551,7 +551,7 @@ class Content {
             : json["container_height_max"],
         viewportFraction: json["viewport_fraction"] == null
             ? null
-            : json["viewport_fraction"].toDouble(),
+            : json["viewport_fraction"],
         titleTopPadding: json["title_top_padding"] == null
             ? null
             : json["title_top_padding"],
@@ -668,15 +668,15 @@ class Content {
 
 class Animation {
   String curve;
-  int delayInMilliseconds;
-  int durationInMilliseconds;
-  int offsetX;
-  int opacityStart;
-  int opacityEnd;
+  num delayInMilliseconds;
+  num durationInMilliseconds;
+  num offsetX;
+  num opacityStart;
+  num opacityEnd;
   String scaleAlign;
-  int scaleStart;
-  double scaleEnd;
-  int offsetY;
+  num scaleStart;
+  num scaleEnd;
+  num offsetY;
   String type;
 
   Animation({
@@ -695,15 +695,15 @@ class Animation {
 
   Animation copyWith({
     String curve,
-    int delayInMilliseconds,
-    int durationInMilliseconds,
-    int offsetX,
-    int opacityStart,
-    int opacityEnd,
+    num delayInMilliseconds,
+    num durationInMilliseconds,
+    num offsetX,
+    num opacityStart,
+    num opacityEnd,
     String scaleAlign,
-    int scaleStart,
-    double scaleEnd,
-    int offsetY,
+    num scaleStart,
+    num scaleEnd,
+    num offsetY,
     String type,
   }) =>
       Animation(
@@ -733,8 +733,7 @@ class Animation {
         opacityEnd: json["opacity_end"] == null ? null : json["opacity_end"],
         scaleAlign: json["scale_align"] == null ? null : json["scale_align"],
         scaleStart: json["scale_start"] == null ? null : json["scale_start"],
-        scaleEnd:
-            json["scale_end"] == null ? null : json["scale_end"].toDouble(),
+        scaleEnd: json["scale_end"] == null ? null : json["scale_end"],
         offsetY: json["offset_y"] == null ? null : json["offset_y"],
         type: json["type"] == null ? null : json["type"],
       );
@@ -910,8 +909,8 @@ class Positions {
 }
 
 class ShellImageOffset {
-  int top;
-  int left;
+  num top;
+  num left;
 
   ShellImageOffset({
     this.top,
@@ -919,8 +918,8 @@ class ShellImageOffset {
   });
 
   ShellImageOffset copyWith({
-    int top,
-    int left,
+    num top,
+    num left,
   }) =>
       ShellImageOffset(
         top: top ?? this.top,
@@ -940,10 +939,10 @@ class ShellImageOffset {
 }
 
 class InnerImage {
-  int top;
-  int left;
-  int height;
-  int width;
+  num top;
+  num left;
+  num height;
+  num width;
 
   InnerImage({
     this.top,
@@ -953,10 +952,10 @@ class InnerImage {
   });
 
   InnerImage copyWith({
-    int top,
-    int left,
-    int height,
-    int width,
+    num top,
+    num left,
+    num height,
+    num width,
   }) =>
       InnerImage(
         top: top ?? this.top,

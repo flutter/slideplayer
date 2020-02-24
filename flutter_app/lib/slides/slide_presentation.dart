@@ -57,7 +57,8 @@ class _SlidePresentationState extends State<SlidePresentation>
 
   @override
   Widget build(BuildContext context) {
-    FlutterSlidesModel model = Provider.of<FlutterSlidesModel>(context, listen: true);
+    FlutterSlidesModel model =
+        Provider.of<FlutterSlidesModel>(context, listen: true);
 
     _autoAdvanceTimer?.cancel();
     if (model.autoAdvance) {
@@ -238,6 +239,12 @@ class _SlidePresentationState extends State<SlidePresentation>
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
+              FlutterLogo(
+                size: 80.0,
+              ),
+              Container(
+                height: 12.0,
+              ),
               Text(
                 "Flutter Slides",
                 textAlign: TextAlign.center,
