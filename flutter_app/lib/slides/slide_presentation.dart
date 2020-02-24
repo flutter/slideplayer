@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:menubar/menubar.dart';
 import 'package:provider/provider.dart';
 import '../utils/menus.dart';
+import 'slide_editor.dart';
 
 class SlidePresentation extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _SlidePresentationState extends State<SlidePresentation>
   bool listTapAllowed = false;
   AnimationController _transitionController;
   AnimationController _slideListController;
-  double _lastSlideListScrollOffset = 0.0;
+
   SlidePageController _slidePageController = SlidePageController();
   Timer _autoAdvanceTimer;
 
@@ -67,14 +68,20 @@ class _SlidePresentationState extends State<SlidePresentation>
         MenuItem(
           label: 'Start',
           shortcut: LogicalKeySet(LogicalKeyboardKey.meta,
-              LogicalKeyboardKey.control, LogicalKeyboardKey.keyP),
-          onClicked: () => _slidePageController?.start(),
+              LogicalKeyboardKey.shift, LogicalKeyboardKey.keyP),
+          onClicked: () {
+            _slidePageController?.start();
+            model.setPresentationMode(true);
+          },
         ),
         MenuItem(
           label: 'Stop',
           shortcut: LogicalKeySet(LogicalKeyboardKey.meta,
-              LogicalKeyboardKey.shift, LogicalKeyboardKey.keyQ),
-          onClicked: () => _slidePageController?.exit(),
+              LogicalKeyboardKey.shift, LogicalKeyboardKey.keyE),
+          onClicked: () {
+            _slidePageController?.exit();
+            model.setPresentationMode(false);
+          },
         ),
         MenuItem(
           label: 'Go to Start',
@@ -122,30 +129,31 @@ class _SlidePresentationState extends State<SlidePresentation>
               model.slides[_currentSlideIndex].animatedTransition ||
                   model.animateSlideTransitions;
           return Container(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              constraints: BoxConstraints.expand(),
-              child: Stack(
-                children: <Widget>[
-                  Row(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            constraints: BoxConstraints.expand(),
+            child: !model.isPresenting
+                ? SlideEditor()
+                : Stack(
                     children: <Widget>[
-                      Container(width: _slideListController.value * 200.0),
-                      Container(width: _slideListController.value * 50.0),
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: animatedTransition
-                              ? _animatedSlideTransition(model)
-                              : _currentSlide(model),
-                        ),
+                      Row(
+                        children: <Widget>[
+                          Container(width: _slideListController.value * 200.0),
+                          Container(width: _slideListController.value * 50.0),
+                          Expanded(
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: animatedTransition
+                                  ? _animatedSlideTransition(model)
+                                  : _currentSlide(model),
+                            ),
+                          ),
+                          Container(width: _slideListController.value * 50.0),
+                        ],
                       ),
-                      Container(width: _slideListController.value * 50.0),
+                      Container()
                     ],
                   ),
-                  _slideListController.value <= 0.01
-                      ? Container()
-                      : _slideList(model),
-                ],
-              ));
+          );
         },
       ),
     );
@@ -189,80 +197,6 @@ class _SlidePresentationState extends State<SlidePresentation>
       slide: model.slides[_currentSlideIndex],
       controller: _slidePageController,
       index: _currentSlideIndex,
-    );
-  }
-
-  Widget _slideList(FlutterSlidesModel model) {
-    return Transform.translate(
-      offset: Offset(-200.0 + _slideListController.value * 200.0, 0.0),
-      child: Container(
-        width: 200.0,
-        color: model.slidesListBGColor,
-        child: NotificationListener<ScrollNotification>(
-          onNotification: (notification) {
-            _lastSlideListScrollOffset = notification.metrics.pixels;
-            return true;
-          },
-          child: ListView.builder(
-            controller: ScrollController(
-              initialScrollOffset: _lastSlideListScrollOffset,
-            ),
-            itemCount: model.slides.length,
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                onTapDown: (details) {
-                  if (listTapAllowed) {
-                    setState(() {
-                      _moveToSlideAtIndex(model, index);
-                    });
-                  }
-                },
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: _currentSlideIndex != index
-                              ? Colors.transparent
-                              : model.slidesListHighlightColor,
-                          width: 4.0,
-                        ),
-                      ),
-                      child: SlidePage(
-                        isPreview: true,
-                        slide: model.slides[index],
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 6.0,
-                      left: 6.0,
-                      child: Container(
-                        height: 20.0,
-                        child: Material(
-                          color:
-                              model.slidesListHighlightColor.withOpacity(0.75),
-                          child: Center(
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 4.0),
-                              child: Text(
-                                '$index',
-                                style: TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.white,
-                                    fontFamily: "RobotoMono"),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              );
-            },
-          ),
-        ),
-      ),
     );
   }
 

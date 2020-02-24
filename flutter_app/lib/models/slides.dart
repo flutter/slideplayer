@@ -51,11 +51,22 @@ class FlutterSlidesModel extends ChangeNotifier {
   bool showDebugContainers = false;
   bool autoAdvance = false;
   int autoAdvanceDurationMillis = 30000;
+  
+  bool _isPresenting = false;
+  bool get isPresenting => _isPresenting;
+  void setPresentationMode(bool value) {
+    _isPresenting = value;
+    notifyListeners();
+  }
 
   StreamSubscription _slidesFileSubscription;
   StreamSubscription _replaceFileSubscription;
+  presUtils.Presentation _presentation;
+  presUtils.Presentation get presentation => _presentation;
+  bool get isReady => _presentation != null;
 
-  Future<void> loadSlidesData(String filePath) async {
+  Future<void> loadSlidesData(String filePath,
+      [bool replaceValues = true]) async {
     _slidesFileSubscription?.cancel();
     _replaceFileSubscription?.cancel();
     _slidesFileSubscription = Watcher(filePath).events.listen((event) {
@@ -64,21 +75,23 @@ class FlutterSlidesModel extends ChangeNotifier {
     });
     try {
       String fileString = File(filePath).readAsStringSync();
-      final replaceFilePath =
-          File(File(filePath).parent.path + '/replace_values.json').path;
-      final replaceFile = File(replaceFilePath);
-      if (replaceFile.existsSync()) {
-        String replaceFileString = replaceFile.readAsStringSync();
-        Map replaceJSON = jsonDecode(replaceFileString);
-        for (final entry in replaceJSON.entries) {
-          fileString = fileString.replaceAll(
-              "\"@replace/${entry.key}\"", entry.value.toString());
+      if (replaceValues) {
+        final replaceFilePath =
+            File(File(filePath).parent.path + '/replace_values.json').path;
+        final replaceFile = File(replaceFilePath);
+        if (replaceFile.existsSync()) {
+          String replaceFileString = replaceFile.readAsStringSync();
+          Map replaceJSON = jsonDecode(replaceFileString);
+          for (final entry in replaceJSON.entries) {
+            fileString = fileString.replaceAll(
+                "\"@replace/${entry.key}\"", entry.value.toString());
+          }
+          _replaceFileSubscription =
+              Watcher(replaceFilePath).events.listen((event) {
+            loadSlidesData(filePath);
+            notifyListeners();
+          });
         }
-        _replaceFileSubscription =
-            Watcher(replaceFilePath).events.listen((event) {
-          loadSlidesData(filePath);
-          notifyListeners();
-        });
       }
       presUtils.Presentation p =
           await presUtils.backgroundPresentationFromJson(fileString);
@@ -133,6 +146,8 @@ class FlutterSlidesModel extends ChangeNotifier {
       SharedPreferences.getInstance().then((prefs) {
         prefs.setString(_RECENTLY_OPENED_FILE_PREFS_KEY, filePath);
       });
+      _presentation = p;
+      notifyListeners();
     } catch (e) {
       print("Error loading slides file: $e");
     }

@@ -10,19 +10,13 @@ import '../utils/menus.dart';
 class SlidePageController {
   _SlidePageControllerListener listener;
 
-  final _isPlayingListener = ValueNotifier<bool>(false);
-  ValueNotifier<bool> get isPlayingListener => _isPlayingListener;
-  bool get isPresenting => _isPlayingListener.value;
-
   void exit() {
-    _isPlayingListener.value = false;
     if (listener != null) {
       return listener.onExit();
     }
   }
 
   void start() {
-    _isPlayingListener.value = true;
     if (listener != null) {
       return listener.onStart();
     }
