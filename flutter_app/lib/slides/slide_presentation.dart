@@ -78,7 +78,7 @@ class _SlidePresentationState extends State<SlidePresentation>
         builder: (context, child) {
           if (model.slides == null) {
             return _emptyState(
-              model.projectBGColor,
+              Theme.of(context).scaffoldBackgroundColor,
               model.slidesListHighlightColor,
             );
           }
@@ -86,7 +86,7 @@ class _SlidePresentationState extends State<SlidePresentation>
               model.slides[_currentSlideIndex].animatedTransition ||
                   model.animateSlideTransitions;
           return Container(
-              color: model.projectBGColor,
+              color: Theme.of(context).scaffoldBackgroundColor,
               constraints: BoxConstraints.expand(),
               child: Stack(
                 children: <Widget>[

@@ -37,11 +37,16 @@ class _MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScopedModel<FlutterSlidesModel>(
       model: loadedSlides,
-      child: MaterialApp(
-        theme: ThemeData(
-          fontFamily: 'GoogleSans',
+      child: DefaultTextStyle(
+        style: TextStyle(fontFamily: 'GoogleSans'),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData.light().copyWith(
+            scaffoldBackgroundColor: const Color(0xFFF0F0F0),
+          ),
+          darkTheme: ThemeData.dark(),
+          home: SlidePresentation(),
         ),
-        home: SlidePresentation(),
       ),
     );
   }

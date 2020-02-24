@@ -170,12 +170,6 @@
       "languageVersion": "2.0"
     },
     {
-      "name": "shared_preferences_fde",
-      "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/git/flutter-desktop-embedding-403355819d784ab51af55e5de556de03618996ba/plugins/flutter_plugins/shared_preferences_fde",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
       "name": "shared_preferences_macos",
       "rootUri": "file:///usr/local/Caskroom/flutter/1.2.1/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-0.0.1+6",
       "packageUri": "lib/",
@@ -271,7 +265,7 @@
       "packageUri": "lib/"
     }
   ],
-  "generated": "2020-02-24T04:26:52.266245Z",
+  "generated": "2020-02-24T04:31:09.279819Z",
   "generator": "pub",
   "generatorVersion": "2.8.0-dev.9.0.flutter-0f141be8bd"
 }
