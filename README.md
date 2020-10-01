@@ -1,6 +1,6 @@
 # Flutter Slides
 
-Flutter Slides utilizes [Flutter's in-progress support for Desktop](https://flutter.dev/desktop) to provide a simple slide presentation app.  Presentations are data driven from files on the disk, so users can create their own presentations without needing to update any code in the project. 
+Flutter Slides utilizes [Flutter's in-progress support for Desktop](https://flutter.dev/desktop) to provide a simple slide presentation app.Presentations are data driven from files on the disk,so users can create their own presentations without needing to update any code in the project. 
 
 For more details on the [presentation file structure](https://github.com/flutter/slideplayer/wiki/Slide-Presentation-JSON-Structure), [animations](https://github.com/flutter/slideplayer/wiki/Slide-Presentation-JSON-Structure#animation-object), [content types](https://github.com/flutter/slideplayer/wiki/Content-Types), and [exporting and sharing a presentation](https://github.com/flutter/slideplayer/wiki/Exporting-and-Sharing-a-Presentation), see the [wiki page](https://github.com/flutter/slideplayer/wiki).
 
@@ -8,10 +8,10 @@ For more details on the [presentation file structure](https://github.com/flutter
 
 ## Features
 - Supports any properly formatted presentation.  See the [wiki](https://github.com/flutter/slideplayer/wiki) for details on the file format.
-- Live updates when presentation file is updated and saved
-- Advancement steps
-- Reveal animations
-- Custom Flutter content (requires code changes)
+- Live updates when presentation file is updated and saved.
+- Advancement steps.
+- Reveal animations.
+- Custom Flutter content (requires code changes).
 
 # Getting Started
 
@@ -23,7 +23,7 @@ For more details on the [presentation file structure](https://github.com/flutter
 - Flutter on the `master` channel.
 
 ### Running
-Change your dir to `flutter_app` and run `flutter run`.
+Change your directory to `flutter_app` and run `flutter run`.
 
 Once it's running, you can open the file `flutter_live.json` in the `example_presentation` folder of the root of the project as a sample.
 
